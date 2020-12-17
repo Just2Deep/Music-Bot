@@ -8,6 +8,7 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.8"
 youtube-dl = "^2020.12.14"
 discord = "^1.0.1"
+django-pypi = "^0.1"
 
 [tool.poetry.dev-dependencies]
 

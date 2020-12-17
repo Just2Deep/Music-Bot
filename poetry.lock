@@ -18,6 +18,33 @@ speedups = ["aiodns", "brotlipy", "cchardet"]
 
 [[package]]
 category = "main"
+description = "Low-level AMQP client for Python (fork of amqplib)"
+name = "amqp"
+optional = false
+python-versions = "*"
+version = "1.4.9"
+
+[[package]]
+category = "main"
+description = "Wraps the best available JSON implementation available in a common interface"
+name = "anyjson"
+optional = false
+python-versions = "*"
+version = "0.3.3"
+
+[[package]]
+category = "main"
+description = "ASGI specs, helper code, and adapters"
+name = "asgiref"
+optional = false
+python-versions = ">=3.5"
+version = "3.3.1"
+
+[package.extras]
+tests = ["pytest", "pytest-asyncio"]
+
+[[package]]
+category = "main"
 description = "Timeout context manager for asyncio programs"
 name = "async-timeout"
 optional = false
@@ -37,6 +64,49 @@ dev = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six",
 docs = ["furo", "sphinx", "zope.interface"]
 tests = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
 tests_no_zope = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
+
+[[package]]
+category = "main"
+description = "Python multiprocessing fork with improvements and bugfixes"
+name = "billiard"
+optional = false
+python-versions = "*"
+version = "3.3.0.23"
+
+[[package]]
+category = "main"
+description = "Distributed Task Queue"
+name = "celery"
+optional = false
+python-versions = "*"
+version = "3.1.26.post2"
+
+[package.dependencies]
+billiard = ">=3.3.0.23,<3.4"
+kombu = ">=3.0.37,<3.1"
+pytz = ">0.0-dev"
+
+[package.extras]
+auth = ["pyopenssl"]
+beanstalk = ["beanstalkc"]
+cassandra = ["pycassa"]
+couchbase = ["couchbase"]
+couchdb = ["couchdb"]
+eventlet = ["eventlet"]
+gevent = ["gevent"]
+librabbitmq = ["librabbitmq (>=1.6.1)"]
+memcache = ["pylibmc"]
+mongodb = ["pymongo (>=2.6.2)"]
+msgpack = ["msgpack-python (>=0.3.0)"]
+pyro = ["pyro4"]
+redis = ["redis (>=2.8.0)"]
+slmq = ["softlayer-messaging (>=1.0.3)"]
+sqlalchemy = ["sqlalchemy"]
+sqs = ["boto (>=2.13.3)"]
+threads = ["threadpool"]
+yaml = ["PyYAML (>=3.10)"]
+zeromq = ["pyzmq (>=13.1.0)"]
+zookeeper = ["kazoo (>=1.3.1)"]
 
 [[package]]
 category = "main"
@@ -74,6 +144,47 @@ voice = ["PyNaCl (1.3.0)"]
 
 [[package]]
 category = "main"
+description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+name = "django"
+optional = false
+python-versions = ">=3.6"
+version = "3.1.4"
+
+[package.dependencies]
+asgiref = ">=3.2.10,<4"
+pytz = "*"
+sqlparse = ">=0.2.2"
+
+[package.extras]
+argon2 = ["argon2-cffi (>=16.1.0)"]
+bcrypt = ["bcrypt"]
+
+[[package]]
+category = "main"
+description = "Old django celery integration project."
+name = "django-celery"
+optional = false
+python-versions = "*"
+version = "3.3.1"
+
+[package.dependencies]
+celery = ">=3.1.15,<4.0"
+django = ">=1.8"
+
+[[package]]
+category = "main"
+description = "VAR_DESCRIPTION"
+name = "django-pypi"
+optional = false
+python-versions = "*"
+version = "0.1"
+
+[package.dependencies]
+django = "*"
+django-celery = "*"
+
+[[package]]
+category = "main"
 description = "Internationalized Domain Names in Applications (IDNA)"
 name = "idna"
 optional = false
@@ -82,11 +193,39 @@ version = "2.10"
 
 [[package]]
 category = "main"
+description = "Messaging library for Python"
+name = "kombu"
+optional = false
+python-versions = "*"
+version = "3.0.37"
+
+[package.dependencies]
+amqp = ">=1.4.9,<2.0"
+anyjson = ">=0.3.3"
+
+[[package]]
+category = "main"
 description = "multidict implementation"
 name = "multidict"
 optional = false
 python-versions = ">=3.5"
 version = "4.7.6"
+
+[[package]]
+category = "main"
+description = "World timezone definitions, modern and historical"
+name = "pytz"
+optional = false
+python-versions = "*"
+version = "2020.4"
+
+[[package]]
+category = "main"
+description = "A non-validating SQL parser."
+name = "sqlparse"
+optional = false
+python-versions = ">=3.5"
+version = "0.4.1"
 
 [[package]]
 category = "main"
@@ -109,7 +248,7 @@ python-versions = "*"
 version = "2020.12.14"
 
 [metadata]
-content-hash = "87ce2a48087fa6a221bc3871548c5e802daf1fb00f5606a1bdee10d9ebffdbb5"
+content-hash = "6b46e6b3f8d3bafa7f2cd71a8346f75417d8174b26ad33e21ffa65a02267b538"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -128,6 +267,17 @@ aiohttp = [
     {file = "aiohttp-3.6.3-cp37-cp37m-win_amd64.whl", hash = "sha256:687461cd974722110d1763b45c5db4d2cdee8d50f57b00c43c7590d1dd77fc5c"},
     {file = "aiohttp-3.6.3.tar.gz", hash = "sha256:698cd7bc3c7d1b82bb728bae835724a486a8c376647aec336aa21a60113c3645"},
 ]
+amqp = [
+    {file = "amqp-1.4.9-py2.py3-none-any.whl", hash = "sha256:e0ed0ce6b8ffe5690a2e856c7908dc557e0e605283d6885dd1361d79f2928908"},
+    {file = "amqp-1.4.9.tar.gz", hash = "sha256:2dea4d16d073c902c3b89d9b96620fb6729ac0f7a923bbc777cb4ad827c0c61a"},
+]
+anyjson = [
+    {file = "anyjson-0.3.3.tar.gz", hash = "sha256:37812d863c9ad3e35c0734c42e0bf0320ce8c3bed82cd20ad54cb34d158157ba"},
+]
+asgiref = [
+    {file = "asgiref-3.3.1-py3-none-any.whl", hash = "sha256:5ee950735509d04eb673bd7f7120f8fa1c9e2df495394992c73234d526907e17"},
+    {file = "asgiref-3.3.1.tar.gz", hash = "sha256:7162a3cb30ab0609f1a4c95938fd73e8604f63bdba516a7f7d64b83ff09478f0"},
+]
 async-timeout = [
     {file = "async-timeout-3.0.1.tar.gz", hash = "sha256:0c3c816a028d47f659d6ff5c745cb2acf1f966da1fe5c19c77a70282b25f4c5f"},
     {file = "async_timeout-3.0.1-py3-none-any.whl", hash = "sha256:4291ca197d287d274d0b6cb5d6f8f8f82d434ed288f962539ff18cc9012f9ea3"},
@@ -135,6 +285,20 @@ async-timeout = [
 attrs = [
     {file = "attrs-20.3.0-py2.py3-none-any.whl", hash = "sha256:31b2eced602aa8423c2aea9c76a724617ed67cf9513173fd3a4f03e3a929c7e6"},
     {file = "attrs-20.3.0.tar.gz", hash = "sha256:832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"},
+]
+billiard = [
+    {file = "billiard-3.3.0.23-cp27-none-macosx_10_6_intel.whl", hash = "sha256:c0cbe8d45ba8d8213ad68ef9a1881002a151569c9424d551634195a18c3a4160"},
+    {file = "billiard-3.3.0.23-cp27-none-win32.whl", hash = "sha256:82041dbaa62f7fde1464d7ab449978618a38b241b40c0d31dafabb36446635dc"},
+    {file = "billiard-3.3.0.23-cp27-none-win_amd64.whl", hash = "sha256:958fc9f8fd5cc9b936b2cb9d96f02aa5ec3613ba13ee7f089c77ff0bcc368fac"},
+    {file = "billiard-3.3.0.23-cp3-none-win32.whl", hash = "sha256:23cb71472712e96bff3e0d45763b7b8a99e5040385fffb96816028352c255682"},
+    {file = "billiard-3.3.0.23-cp3-none-win_amd64.whl", hash = "sha256:ccfe0419eb5e49f27ad35cf06e75360af903df6d576c66cb8073246d4e023e5c"},
+    {file = "billiard-3.3.0.23-cp33-none-win32.whl", hash = "sha256:204e75d390ef8f839c30a93b696bd842c3941916e15921745d05edc2a83868ab"},
+    {file = "billiard-3.3.0.23-cp33-none-win_amd64.whl", hash = "sha256:d4d2fed1a251ea58eed47b48db3778ebb92f5ff4407dc91869c6f41c3a9249d0"},
+    {file = "billiard-3.3.0.23.tar.gz", hash = "sha256:692a2a5a55ee39a42bcb7557930e2541da85df9ea81c6e24827f63b80cd39d0b"},
+]
+celery = [
+    {file = "celery-3.1.26.post2-py2.py3-none-any.whl", hash = "sha256:60211897aee321266ff043fe2b33eaac825dfe9f46843cf964fc97507a186334"},
+    {file = "celery-3.1.26.post2.tar.gz", hash = "sha256:5493e172ae817b81ba7d09443ada114886765a8ce02f16a56e6fac68d953a9b2"},
 ]
 chardet = [
     {file = "chardet-3.0.4-py2.py3-none-any.whl", hash = "sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"},
@@ -148,9 +312,24 @@ discord = [
     {file = "discord.py-1.5.1-py3-none-any.whl", hash = "sha256:2367359e31f6527f8a936751fc20b09d7495dd6a76b28c8fb13d4ca6c55b7563"},
     {file = "discord.py-1.5.1.tar.gz", hash = "sha256:def00dc50cf36d21346d71bc89f0cad8f18f9a3522978dc18c7796287d47de8b"},
 ]
+django = [
+    {file = "Django-3.1.4-py3-none-any.whl", hash = "sha256:5c866205f15e7a7123f1eec6ab939d22d5bde1416635cab259684af66d8e48a2"},
+    {file = "Django-3.1.4.tar.gz", hash = "sha256:edb10b5c45e7e9c0fb1dc00b76ec7449aca258a39ffd613dbd078c51d19c9f03"},
+]
+django-celery = [
+    {file = "django-celery-3.3.1.tar.gz", hash = "sha256:13b0bd73998dd105bc67af89445036b2a55578299fd0292a846a0c082ed959a9"},
+    {file = "django_celery-3.3.1-py3-none-any.whl", hash = "sha256:1f2b5259836867e5ad8282fd9b1edc1fa869028154d129699276e2eaace3445b"},
+]
+django-pypi = [
+    {file = "django-pypi-0.1.tar.gz", hash = "sha256:f4fae4b2b4e0e0cdcbddbf1f7436f4392ec4b246d7deefa54846e0821ba6bd11"},
+]
 idna = [
     {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
     {file = "idna-2.10.tar.gz", hash = "sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"},
+]
+kombu = [
+    {file = "kombu-3.0.37-py2.py3-none-any.whl", hash = "sha256:7ceab743e3e974f3e5736082e8cc514c009e254e646d6167342e0e192aee81a6"},
+    {file = "kombu-3.0.37.tar.gz", hash = "sha256:e064a00c66b4d1058cd2b0523fb8d98c82c18450244177b6c0f7913016642650"},
 ]
 multidict = [
     {file = "multidict-4.7.6-cp35-cp35m-macosx_10_14_x86_64.whl", hash = "sha256:275ca32383bc5d1894b6975bb4ca6a7ff16ab76fa622967625baeebcf8079000"},
@@ -170,6 +349,14 @@ multidict = [
     {file = "multidict-4.7.6-cp38-cp38-win32.whl", hash = "sha256:5cf311a0f5ef80fe73e4f4c0f0998ec08f954a6ec72b746f3c179e37de1d210d"},
     {file = "multidict-4.7.6-cp38-cp38-win_amd64.whl", hash = "sha256:7388d2ef3c55a8ba80da62ecfafa06a1c097c18032a501ffd4cabbc52d7f2b19"},
     {file = "multidict-4.7.6.tar.gz", hash = "sha256:fbb77a75e529021e7c4a8d4e823d88ef4d23674a202be4f5addffc72cbb91430"},
+]
+pytz = [
+    {file = "pytz-2020.4-py2.py3-none-any.whl", hash = "sha256:5c55e189b682d420be27c6995ba6edce0c0a77dd67bfbe2ae6607134d5851ffd"},
+    {file = "pytz-2020.4.tar.gz", hash = "sha256:3e6b7dd2d1e0a59084bcee14a17af60c5c562cdc16d828e8eba2e683d3a7e268"},
+]
+sqlparse = [
+    {file = "sqlparse-0.4.1-py3-none-any.whl", hash = "sha256:017cde379adbd6a1f15a61873f43e8274179378e95ef3fede90b5aa64d304ed0"},
+    {file = "sqlparse-0.4.1.tar.gz", hash = "sha256:0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"},
 ]
 yarl = [
     {file = "yarl-1.5.1-cp35-cp35m-macosx_10_14_x86_64.whl", hash = "sha256:db6db0f45d2c63ddb1a9d18d1b9b22f308e52c83638c26b422d520a815c4b3fb"},
